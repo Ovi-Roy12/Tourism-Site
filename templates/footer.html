@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <title>{% block title_block %} Antora Tourism BD {% endblock %}</title>
+
+  {% block css_block %}
+  {% endblock %}
+</head>
+<body>
+
+  <div class="container">
+    {% block body_block %}  {% endblock %}
+  </div>
+
+  <!-- Fixed Footer Section -->
+  <footer class="footer mt-5 p-5 bg-dark text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>Navigation</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white">Home</a></li>
+            <li><a href="#" class="text-white">About Us</a></li>
+            <li><a href="#" class="text-white">Services</a></li>
+            <!-- Add more navigation links as needed -->
+          </ul>
+
+        </div>
+        <div class="col-md-3">
+          <h5>Contact Us</h5>
+          <p>Email: info@example.com</p>
+          <p>Phone: +1 (123) 456-7890</p>
+        </div>
+
+        <div class="col-md-3 text-right">
+          <h5>Follow Us</h5>
+          <a href="#" class="text-white"><i class="fa fa-facebook"></i></a>
+          <a href="#" class="text-white"><i class="fa fa-twitter"></i></a>
+          <a href="#" class="text-white"><i class="fa fa-instagram"></i></a>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Newsletter</h5>
+          <form>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Enter your email">
+            </div>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+    <!-- Copyright Section -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <hr class="bg-white">
+          <p>&copy; 2023 Antora Tourism BD. All rights reserved.</p>
+
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

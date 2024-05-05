@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% block title_block %} {{title}} {% endblock %}
+{% block body_block %}
+<h1>sign up page</h1>
+
+    {% block css_block %}
+    <style>
+        .sign_up {
+            width: 550px;
+            border: 1px solid #ccc;
+            padding: 30px;
+        }
+        .Log_in {
+            width: 550px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    {% endblock %}
+<center>
+    <div class="sign_up">
+        <h4>Sign up to see more details</h4>
+        <form method="POST">
+            {% bootstrap_form form %}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-sm btn-primary" style="width:100%">Sign up</button>
+        </form>
+    </div>
+    <div class="Log_in">
+        <p>Have an account? <a href="{% url 'App_Login:login' %}">Log in</a></p>
+    </div>
+</center>
+{% endblock  %}
+
+

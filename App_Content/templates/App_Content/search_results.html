@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+  <div class="container mt-5">
+    <h1>Search Results for "{{ search_query }}"</h1>
+
+    {% if destinations %}
+      <div class="row row-cols-4">
+        {% for destination in destinations %}
+          <div class="col mb-5 p-5">
+            <a href="{% url 'App_Content:view_details' destination_id=destination.id %}">
+              {% for image in destination.images %}
+                <img src="{% static image %}" class="d-block w-100 h-100" alt="{{ destination.name }}">
+              {% endfor %}
+            </a>
+            <div>
+              <h5>{{ destination.name }}</h5>
+              <p>{{ destination.package }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% else %}
+      <p>No results found for "{{ search_query }}"</p>
+    {% endif %}
+  </div>
+{% endblock %}

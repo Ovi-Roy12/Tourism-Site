@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body_block %}
+<h1>View Blogs</h1>
+  <div class="container mt-5">
+    <h1>Blog List</h1>
+    {% for blog in blogs %}
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ blog.blog_title }}</h5>
+          <p class="card-text">{{ blog.blog_content|truncatewords:30 }}</p>
+          <a href="{% url 'App_Blog:blog_detail' blog_id=blog.id %}" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
+

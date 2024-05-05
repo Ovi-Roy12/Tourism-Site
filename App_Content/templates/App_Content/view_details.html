@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load bootstrap4 %}
+{% block title_block %}View Details{% endblock %}
+{% block body_block %}
+<h1 class="text-center">View Details</h1>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Left Side: Details -->
+        <div class="col-md-12">
+            <div class="row p-2">
+                <div class="col-md-6 border p-2">
+                    <h4 class="mb-0">Place:</h4>
+                </div>
+                <div class="col-md-6 border p-2">
+                    <h5 class="mb-0">{{ destination.name }}</h5>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-md-6 border p-2">
+                    <h4 class="mb-0">Country:</h4>
+                </div>
+                <div class="col-md-6 border p-2">
+                    <h5 class="mb-0">{{ destination.country }}</h5>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-md-6 border p-2">
+                    <h4 class="mb-0">Description:</h4>
+                </div>
+                <div class="col-md-6 border p-2">
+                    <h5 class="mb-0 ">{{ destination.description }}</h5>
+                </div>
+            </div>
+
+            <div class="row p-2 ">
+                <div class="col-md-6 border p-2">
+                    <h4 class="mb-0">Package:</h4>
+                </div>
+                <div class="col-md-6 border p-2">
+                    <h5 class="mb-0">{{ destination.package }}</h5>
+                </div>
+            </div>
+
+            <div class="row p-2">
+                <div class="col-md-6 border p-2">
+                    <h4 class="mb-0">Price:</h4>
+                </div>
+                <div class="col-md-6 border p-2">
+                    <h5 class="mb-0">{{ destination.price }}</h5>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+            <div class="row">
+                {% for image in processed_images %}
+                    <div class="col-md-4">
+                        <img src="{% static image.image %}" class="img-fluid" alt="{{ destination.name }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+             <!-- Centered "Book Now" button -->
+            <div class="row justify-content-center">
+                <a href="{%url 'App_Content:my_booking'%}" class="btn btn-success w-25 m-4">Book Now</a>
+            </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body_block %}
+  <div class="container mt-5">
+    <h1>{{ blog.blog_title }}</h1>
+    <p class="text-muted">Published on {{ blog.publish_date }}</p>
+    <img src="{{ blog.blog_image.url }}" class="img-fluid mb-3" alt="{{ blog.blog_title }}">
+    <p>{{ blog.blog_content }}</p>
+    <a href="{% url 'App_Blog:blog_list' %}" class="btn btn-secondary">Back to Blog List</a>
+  </div>
+{% endblock %}

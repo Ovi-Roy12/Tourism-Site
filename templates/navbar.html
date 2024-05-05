@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <title>{% block title_block %} Antora Tourism BD {% endblock %}</title>
+
+  {% block css_block %}
+  {% endblock %}
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'App_Content:home' %}">Adventure Ascent BD</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!---Navbar Link Section-->
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'App_Content:home' %}">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App_Blog:blog_list' %}">Blog</a>
+        </li>
+
+
+        {% if user.is_authenticated %}
+       <li class="nav-item">
+          <a class="nav-link" href="{% url 'App_Login:profile' %}">Your Profile</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App_Content:my_booking' %}">My Booking</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App_Content:contact' %}">Contact</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App_Login:logout' %}">Log Out</a>
+        </li>
+
+        {% else %}
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App_Login:login' %}">LogIn</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App_Login:sign_up' %}">Register</a>
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'App_Content:contact' %}">Contact</a>
+        </li>
+        {% endif %}
+
+      </ul>
+
+      <!---Navbar Search Section--->
+      <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'App_Content:search_results' %}">
+        <input class="form-control mr-sm-2" type="text" name="search" placeholder="Search">
+        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div style="padding-top:20px">
+    {% block body_block %}  {% endblock %}
+  </div>
+
+</body>
+</html>
+
